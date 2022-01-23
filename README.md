@@ -138,4 +138,4 @@ All CV info can be printed out on the terminal by using the command:
 
 #### Windows
 
-```flask print-cv```
+```python -m flask print-cv```
