@@ -1,4 +1,23 @@
 # cv-flask
+## Table of contents
+
+* [Description](#description)
+* [Tests and development](#tests-and-development)
+* [Installation](#installation)
+  *  [Prerequisites](#prerequisites)
+    * [Option 1: Git command](#option-1-git-command)
+    * [Option 2: Download zip](#option-2-download-zip)
+    * [Install required Python packages](#install-required-python-packages)
+* [Usage](#usage)
+  * [Running the application as a REST API](#running-the-application-as-a-rest-api)
+    * [Linux](#linux)
+    * [Windows](#windows)
+    * [Endpoints](#endpoints)
+    * [Web view](#web-view)
+  * [Getting info via a CLI command](#getting-info-via-a-cli-command)
+    * [Linux](#linux-1)
+    * [Windows](windows-1)
+
 ## Description
 cv-flask is a Python Flask project which can be run on a desktop or server with REST API endpoints to fetch all CV data from Erwin Mintiens.
 cv-flask also has a web view with all present CV data.
