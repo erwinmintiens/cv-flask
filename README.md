@@ -3,6 +3,10 @@
 cv-flask is a Python Flask project which can be run on a server with REST API endpoints to fetch all CV data from Erwin Mintiens.
 cv-flask also has a web view with all present CV data.
 
+## Tests and development
+
+This application was created and tested on Arch Linux, with Python 3.10.1.
+
 ## Installation
 ### Prerequisites
 
