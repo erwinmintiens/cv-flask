@@ -90,7 +90,7 @@ def generate_cv():
     email.text = 'erwin.mintiens@gmail.com'
 
     telephone = ET.SubElement(personal, 'telephone')
-    telephone.text = '+32494689105'
+    telephone.text = '+32 494 68 91 05'
 
     birth = ET.SubElement(personal, 'birthday')
     birth_date = ET.SubElement(birth, 'date')
@@ -135,7 +135,7 @@ def generate_cv():
 
     # Experience
 
-    add_job(superelement=experience, from_when='June 2019', until_when='Undefined', company_name='KeySign NV',
+    add_job(superelement=experience, from_when='June 2019', until_when='...', company_name='KeySign NV',
             function='Jr. Developer and Support Engineer', address='Veldkant 33a, 2550 Kontich')
     add_job(superelement=experience, from_when='April 2018', until_when='June 2019',
             company_name='Media Markt Machelen', function='Student job: Solutions corner expert',
