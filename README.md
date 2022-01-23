@@ -98,7 +98,7 @@ which shows that the application is successfully running on port 5000.
 
 #### Windows
 
-Run the flask application by executing ```flask run```. You should see something like this:
+Run the flask application by executing ```python -m flask run```. You should see something like this:
 
 ```
 (venv) >flask run
