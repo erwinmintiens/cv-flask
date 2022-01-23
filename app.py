@@ -1,3 +1,4 @@
+import flask
 from flask import Flask, jsonify, make_response
 import click
 from flask.cli import with_appcontext
@@ -12,13 +13,13 @@ app.register_blueprint(web_views, url_prefix='/web')
 
 
 @app.errorhandler(404)
-def page_not_found(error):
+def page_not_found(error=None) -> flask.Response:
     return make_response(jsonify({'Error': 'Not found'}), 404)
 
 
 @click.command(name='print-cv')
 @with_appcontext
-def print_cv():
+def print_cv() -> None:
     titles = ('Personal Details', 'Education', 'Experience', 'Courses, Specialties and Certifications', 'Projects',
               'Skills', 'References')
     personal_data = json.loads(personal().data)
@@ -30,6 +31,7 @@ def print_cv():
     references_data = json.loads(references().data)
     data_list = (personal_data, experience_data, education_data, courses_specialties_certifications_data,
                  projects_data, skills_data, references_data)
+    print('############# CV Erwin Mintiens #############')
     for index, data in enumerate(data_list):
         print(f'---------- {titles[index]} ----------')
         print(json.dumps(data, indent=4))
@@ -40,19 +42,19 @@ app.cli.add_command(print_cv)
 
 # Test API by getting root
 @app.route('/', methods=['GET'])
-def home():
+def home() -> flask.Response:
     return make_response(jsonify({'Status': 'Success'}), 200)
 
 
 @app.route('/personal', methods=['GET'])
-def personal():
+def personal() -> flask.Response:
     name, address, email, telephone, birth_date, birth_place, sex, marital_status, nationality, drivers_licence, \
     dutch_skill, english_skill, french_skill = get_personal_details()
 
     return make_response(jsonify({
-        "Name": name,
-        "Address": address,
-        "Email address": email,
+        'Name': name,
+        'Address': address,
+        'Email address': email,
         'Telephone': telephone,
         'Birth date': birth_date,
         'Birth place': birth_place,
@@ -69,7 +71,7 @@ def personal():
 
 
 @app.route('/experience', methods=['GET'])
-def experience():
+def experience() -> flask.Response:
     companies, froms, tos, functions, addresses = get_experience_from_xml()
     dictionary = dict()
     for index, value in enumerate(companies):
@@ -83,7 +85,7 @@ def experience():
 
 
 @app.route('/education', methods=['GET'])
-def education():
+def education() -> flask.Response:
     level, value, from_when, until_when, place = get_education_from_xml()
 
     return make_response(jsonify({
@@ -96,7 +98,7 @@ def education():
 
 
 @app.route('/courses_specialties_certifications', methods=['GET'])
-def courses_specialties_certifications():
+def courses_specialties_certifications() -> flask.Response:
     kinds, names, timeframes, companies = get_courses_specialties_certifications_from_xml()
     dictionary = dict()
     for index, value in enumerate(names):
@@ -109,7 +111,7 @@ def courses_specialties_certifications():
 
 
 @app.route('/projects', methods=['GET'])
-def projects():
+def projects() -> flask.Response:
     names, descriptions, functions, timeframes = get_projects_from_xml()
     dictionary = dict()
     for index, value in enumerate(names):
@@ -122,7 +124,7 @@ def projects():
 
 
 @app.route('/skills', methods=['GET'])
-def skills():
+def skills() -> flask.Response:
     names, levels = get_skills_from_xml()
     dictionary = dict()
     for index, name in enumerate(names):
@@ -131,7 +133,7 @@ def skills():
 
 
 @app.route('/references', methods=['GET'])
-def references():
+def references() -> flask.Response:
     names, links = get_references_from_xml()
     dictionary = dict()
     for index, name in enumerate(names):

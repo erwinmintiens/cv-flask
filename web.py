@@ -7,12 +7,12 @@ cv_xml_root = generate_cv()
 
 
 @web_views.route('/index', methods=['GET'])
-def website_index():
+def website_index() -> str:
     return render_template('index.html')
 
 
 @web_views.route('/personal', methods=['GET'])
-def website_personal():
+def website_personal() -> str:
     name, address, email, telephone, birth_date, birth_place, sex, marital_status, nationality, drivers_licence, \
     dutch_skill, english_skill, french_skill = get_personal_details()
 
@@ -23,17 +23,16 @@ def website_personal():
 
 
 @web_views.route('/education', methods=['GET'])
-def website_education():
+def website_education() -> str:
     level, value, from_when, until_when, place = get_education_from_xml()
-
-    course, math = value.split(" - ")
+    course, math = value.split(' - ')
 
     return render_template('education.html', level=level, course=course, math=math, place=place, from_when=from_when,
                            until_when=until_when)
 
 
 @web_views.route('/experience', methods=['GET'])
-def website_experience():
+def website_experience() -> str:
     companies, froms, tos, functions, addresses = get_experience_from_xml()
 
     return render_template('experience.html', companies=companies, functions=functions, froms=froms, tos=tos,
@@ -41,27 +40,27 @@ def website_experience():
 
 
 @web_views.route('/courses_specialties_certifications', methods=['GET'])
-def website_courses_specialties_certifications():
+def website_courses_specialties_certifications() -> str:
     kinds, names, timeframes, companies = get_courses_specialties_certifications_from_xml()
     return render_template('courses_specialties_certifications.html', kinds=kinds, names=names, timeframes=timeframes,
                            companies=companies, length=len(kinds))
 
 
 @web_views.route('/projects', methods=['GET'])
-def website_projects():
+def website_projects() -> str:
     names, descriptions, functions, timeframes = get_projects_from_xml()
     return render_template('projects.html', names=names, descriptions=descriptions, functions=functions,
                            timeframes=timeframes, length=len(names))
 
 
 @web_views.route('/skills', methods=['GET'])
-def website_skills():
+def website_skills() -> str:
     names, levels = get_skills_from_xml()
     return render_template('skills.html', names=names, levels=levels, length=len(names))
 
 
 @web_views.route('/references', methods=['GET'])
-def website_references():
+def website_references() -> str:
     names, links = get_references_from_xml()
     return render_template('references.html', names=names, links=links, length=len(names))
 

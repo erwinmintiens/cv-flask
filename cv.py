@@ -49,7 +49,7 @@ def add_project(superelement: ET.Element, name: str, description: str, function:
 
 def add_skill(superelement: ET.Element, name: str, level: str, category: str) -> None:
     skill = ET.SubElement(superelement, 'skill')
-    skill.set("category", category)
+    skill.set('category', category)
 
     skill_name = ET.SubElement(skill, 'name')
     skill_level = ET.SubElement(skill, 'level')
@@ -138,7 +138,7 @@ def generate_cv():
     add_job(superelement=experience, from_when='June 2019', until_when='...', company_name='KeySign NV',
             function='Jr. Developer and Support Engineer', address='Veldkant 33a, 2550 Kontich')
     add_job(superelement=experience, from_when='April 2018', until_when='June 2019',
-            company_name='Media Markt Machelen', function='Student job: Solutions corner expert',
+            company_name='Media Markt Machelen', function='Student job: Solutions Corner Expert',
             address='Woluwelaan 11, 1830 Machelen')
     add_job(superelement=experience, from_when='August 2017', until_when='January 2018',
             company_name='Quo Vadis Belgium', function='Solution Support Engineer',
@@ -169,7 +169,7 @@ def generate_cv():
                 description='signinghubapi is a Python package which integrates with the SigningHub REST API',
                 function='Development and maintenance', timeframe='June 2021 - ...')
     add_project(superelement=projects, name='Gatekeeper',
-                description='the gatekeeper project is a Python Flask project which communicates with the SigningHub '
+                description='The gatekeeper project is a Python Flask project which communicates with the SigningHub '
                             'REST API to insert an approver in a workflow if workflows are shared with certain '
                             'recipients. The gatekeeper project is an expansion upon the QR project.',
                 function='Development and maintenance', timeframe='Februari 2021 - ...')
@@ -185,7 +185,7 @@ def generate_cv():
                             'upon these documents.',
                 function='Development and maintenance', timeframe='November 2020 - ...')
     add_project(superelement=projects, name='PayShield 10k payment HSM',
-                description='Installation and initial setup of PayShield 10k HSM in High Availability for Monizze.',
+                description='Installation and initial setup of PayShield 10k HSM in high availability for Monizze.',
                 function='Setup and installation', timeframe='May 2020')
     add_project(superelement=projects, name='SigningHub API Client',
                 description='A tool with GUI written for Cronos Public Services which merges given Word files and an '
@@ -193,7 +193,7 @@ def generate_cv():
                             'SigningHub\'s REST API.',
                 function='Development and maintenance', timeframe='November 2019 - ...')
     add_project(superelement=projects, name='Jira and Confluence',
-                description='Setup of the KeySign servicedesk, together with Jira Core, Software and confluence on a '
+                description='Setup of the KeySign servicedesk, together with Jira Core, Software and Confluence on a '
                             'Linux server.',
                 function='Installation and administration', timeframe='September 2019 - ...')
 
