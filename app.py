@@ -11,6 +11,11 @@ app = Flask(__name__)
 app.register_blueprint(web_views, url_prefix='/web')
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return make_response(jsonify({'Error': 'Not found'}), 404)
+
+
 @click.command(name='print-cv')
 @with_appcontext
 def print_cv():
