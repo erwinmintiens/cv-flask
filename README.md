@@ -101,7 +101,7 @@ which shows that the application is successfully running on port 5000.
 Run the flask application by executing ```python -m flask run```. You should see something like this:
 
 ```
-(venv) >flask run
+(venv) >python -m flask run
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
